@@ -1,0 +1,125 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc
+Date     : 2024-06-01
+Time     : 01:15:42
+
+Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (OnLayer('Keep-Out Layer')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.102mm) (Max=1816.048mm) (Preferred=0.203mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.267mm) (Max=0.369mm) (Preferred=0.369mm) (InNetClass('RMII'))
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.3mm) (Conductor Width=0.102mm) (Air Gap=0.102mm) (Entries=4) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.074mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.25mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Room Valve9 (Bounding Region = (6.25mm, 66mm, 17.9mm, 73mm) (InComponentClass('Valve9'))
+Rule Violations :0
+
+Processing Rule : Room Valve1 (Bounding Region = (72.1mm, 17mm, 83.75mm, 24mm) (InComponentClass('Valve1'))
+Rule Violations :0
+
+Processing Rule : Room Valve8 (Bounding Region = (72.1mm, 66mm, 83.75mm, 73mm) (InComponentClass('Valve8'))
+Rule Violations :0
+
+Processing Rule : Room Valve10 (Bounding Region = (6.25mm, 59mm, 17.9mm, 66mm) (InComponentClass('Valve10'))
+Rule Violations :0
+
+Processing Rule : Room Valve5 (Bounding Region = (72.1mm, 45mm, 83.75mm, 52mm) (InComponentClass('Valve5'))
+Rule Violations :0
+
+Processing Rule : Room Heater_conn1 (Bounding Region = (61.348mm, 69.05mm, 71.652mm, 83.377mm) (InComponentClass('Heater_conn1'))
+Rule Violations :0
+
+Processing Rule : Room Heater_conn2 (Bounding Region = (18.398mm, 69mm, 28.702mm, 83.327mm) (InComponentClass('Heater_conn2'))
+Rule Violations :0
+
+Processing Rule : Room CC_oct_driver2 (Bounding Region = (17.8mm, 47.6mm, 27mm, 67.1mm) (InComponentClass('CC_oct_driver2'))
+Rule Violations :0
+
+Processing Rule : Room CC_oct_driver1 (Bounding Region = (60.8mm, 47.6mm, 70mm, 67.1mm) (InComponentClass('CC_oct_driver1'))
+Rule Violations :0
+
+Processing Rule : Room Valve2 (Bounding Region = (72.1mm, 24mm, 83.75mm, 31mm) (InComponentClass('Valve2'))
+Rule Violations :0
+
+Processing Rule : Room Valve7 (Bounding Region = (72.1mm, 59mm, 83.75mm, 66mm) (InComponentClass('Valve7'))
+Rule Violations :0
+
+Processing Rule : Room Valve12 (Bounding Region = (6.25mm, 45mm, 17.9mm, 52mm) (InComponentClass('Valve12'))
+Rule Violations :0
+
+Processing Rule : Room Valve15 (Bounding Region = (6.25mm, 24mm, 17.9mm, 31mm) (InComponentClass('Valve15'))
+Rule Violations :0
+
+Processing Rule : Room Valve13 (Bounding Region = (6.25mm, 38mm, 17.9mm, 45mm) (InComponentClass('Valve13'))
+Rule Violations :0
+
+Processing Rule : Room Valve14 (Bounding Region = (6.25mm, 31mm, 17.9mm, 38mm) (InComponentClass('Valve14'))
+Rule Violations :0
+
+Processing Rule : Room Valve4 (Bounding Region = (72.1mm, 38mm, 83.75mm, 45mm) (InComponentClass('Valve4'))
+Rule Violations :0
+
+Processing Rule : Room Valve6 (Bounding Region = (72.1mm, 52mm, 83.75mm, 59mm) (InComponentClass('Valve6'))
+Rule Violations :0
+
+Processing Rule : Room Valve3 (Bounding Region = (72.1mm, 31mm, 83.75mm, 38mm) (InComponentClass('Valve3'))
+Rule Violations :0
+
+Processing Rule : Room Valve11 (Bounding Region = (6.25mm, 52mm, 17.9mm, 59mm) (InComponentClass('Valve11'))
+Rule Violations :0
+
+Processing Rule : Room Valve16 (Bounding Region = (6.25mm, 17mm, 17.9mm, 24mm) (InComponentClass('Valve16'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
+   Waived Violation between Clearance Constraint: (0.123mm < 0.127mm) Between Pad J5_CC_oct_driver1-2(64.324mm,50.026mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:01:49Address selection
+   Waived Violation between Clearance Constraint: (0.123mm < 0.127mm) Between Pad J5_CC_oct_driver2-2(21.374mm,50.026mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:01:49Address selection
+   Waived Violation between Clearance Constraint: (0.123mm < 0.127mm) Between Pad J6_CC_oct_driver1-2(64.324mm,51.042mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:01:49Address selection
+   Waived Violation between Clearance Constraint: (0.123mm < 0.127mm) Between Pad J6_CC_oct_driver2-2(21.374mm,51.042mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:01:49Address selection
+   Waived Violation between Clearance Constraint: (0.092mm < 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:02:03Address selection
+   Waived Violation between Clearance Constraint: (0.092mm < 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 23:02:03Address selection
+   Waived Violation between Clearance Constraint: (0.092mm < 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 22:37:01Address selection
+   Waived Violation between Clearance Constraint: (0.092mm < 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts Waived by Piotr S這nka at 2024-05-31 22:37:01Address selection
+Waived Violations :8
+
+
+Violations Detected : 0
+Waived Violations : 8
+Time Elapsed        : 00:00:03

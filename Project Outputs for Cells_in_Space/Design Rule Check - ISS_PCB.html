@@ -1,0 +1,457 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2024-06-01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">01:15:42</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:03</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc" class="file"><acronym title="C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc">C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">8</td></tr>
+</table>
+</td>
+</table><a name="IDWMF5SSL3CGBYKQHDJV4GN2A0GIUFUCE1JHQ0OONOVRVHKZFISAVK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKTCJYH23IGOSGRO5BJ1LC2LWHCENC45BCEUHHWLQOLSMGKIQXIKC">Clearance Constraint (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLORB1RL2VWJUGORFHYOVD0BDEO33OF0BTNCGZ2CG2THQ4YQTQIM">Clearance Constraint (Gap=0.254mm) (OnLayer('Keep-Out Layer')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLNVDF2IXX2LPJIADBOAB401WSB0V1NS4XEP3MNH1SEKV4GBDSSNG">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDONWMJLPYGNKBE5NFZCEZPQUI5MNTIJOBW5SILCMO0BM41Z35VGTF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC2KCACE1QS1PDF0SIN3RC3VRHIIAIGQLUYJUACDXGDSEOCZ2I5MF">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQ3RRVICQXRYEGHB5MFKLCVBFONNDBLYVBXPUUSFRNCGZBYQD0GFO">Width Constraint (Min=0.102mm) (Max=1816.048mm) (Preferred=0.203mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGOHXNM04CAAIMLETWGX0BKTPEOGFKH3H4UF4TMOWMWKKUL5SVSBN">Width Constraint (Min=0.267mm) (Max=0.369mm) (Preferred=0.369mm) (InNetClass('RMII'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMO04B1BOORSCGUYQBHFIVTNTYIHK0PYJW5ELH4HRREZKC5BXK3DK">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (InPadClass('PowerPads'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJ3HXL1Z22TWUMMKGQKXR10QCYEIDU0FRBGSWCMLBMKIFS4MIPCHB">Power Plane Connect Rule(Direct Connect )(Expansion=0.3mm) (Conductor Width=0.102mm) (Air Gap=0.102mm) (Entries=4) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0KDII3RDPTESJR3K3LOVHFGFJKSYOQ0RHJGYIXNP5VFJ0EXI03VF">Minimum Annular Ring (Minimum=0.074mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID140JTB2CUBT3EPNNDDYZ1SOSZLUP3KSBJIPSY3L122VSRXAR2ZEI">Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUUABYDNIBCY3HQIZPE2JGPDEBBWEICS4DMUUZCJXPVLGRMRLYV0O">Hole To Hole Clearance (Gap=0.25mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDU0Q2DTQPNLWBJHOL1XZCX40UUJOE1YLBP0MOZWNDNPUWC00H1ZGC">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWW1IRROCV5ODF201AOFCFX13UHH4QNELHMOYD2HT1ZJBCAXQMQXI">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVI4GJIBHSG1ODSEFYAOURIWBBIGDSORK20ASY2JMOPXXORAXMK2">Room Valve9 (Bounding Region = (6.25mm, 66mm, 17.9mm, 73mm) (InComponentClass('Valve9'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDE4BIRIVYUXMR5IYTDEZLDQCFMTRQXANUZXSZLDNZJLW1KWCCVG">Room Valve1 (Bounding Region = (72.1mm, 17mm, 83.75mm, 24mm) (InComponentClass('Valve1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQWHA2MH0T25XOJ4J1YNB0TW1FOB21DL4FAQJSADTCAU1QSO2IH1B">Room Valve8 (Bounding Region = (72.1mm, 66mm, 83.75mm, 73mm) (InComponentClass('Valve8'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID02IDCKZ5QYCWM2YWSH4W4PWUXNBOFCW0GWISG5OKMQUU210EC0OB">Room Valve10 (Bounding Region = (6.25mm, 59mm, 17.9mm, 66mm) (InComponentClass('Valve10'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGMFJNOJTSRNEEEYVMU3LSCLLWKGT5UYIJKJVNVPNF2OP5OKBHMIJ">Room Valve5 (Bounding Region = (72.1mm, 45mm, 83.75mm, 52mm) (InComponentClass('Valve5'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQ5ENVO4JAFRMMBDJQAKSNBJ0HNYZMVEATFURXLI53HC1ITQGRFZP">Room Heater_conn1 (Bounding Region = (61.348mm, 69.05mm, 71.652mm, 83.377mm) (InComponentClass('Heater_conn1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2XSPLK4HATFVEY2S02IJHC4T2BRCMCX0LXPMKFMMV3LKRXEY14FP">Room Heater_conn2 (Bounding Region = (18.398mm, 69mm, 28.702mm, 83.327mm) (InComponentClass('Heater_conn2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVOVMWWV4VJKXDRWLJNTSGXKACGOLWLTR3AVRAEDI1W50CGSLVEF">Room CC_oct_driver2 (Bounding Region = (17.8mm, 47.6mm, 27mm, 67.1mm) (InComponentClass('CC_oct_driver2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDES5SMPT4YIXEK4E340O3TJ3BMLQNSQITFZMMCJJMAE40RXAK1YFE">Room CC_oct_driver1 (Bounding Region = (60.8mm, 47.6mm, 70mm, 67.1mm) (InComponentClass('CC_oct_driver1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA43M0EO3C0ZDE0T13PGFO43LYIBNY4GE42KE3AMDGCPUGZD0KUXH">Room Valve2 (Bounding Region = (72.1mm, 24mm, 83.75mm, 31mm) (InComponentClass('Valve2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2B4HJOY1RGMQENCVKMNXIKNV4CX1MIHGMDF4A0EI25T3RXEE4W1I">Room Valve7 (Bounding Region = (72.1mm, 59mm, 83.75mm, 66mm) (InComponentClass('Valve7'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQIWFXQYJPYIMDRTO0MU2OAG45GBC1WD3MJEPGSE32VDHJCJWMYFD">Room Valve12 (Bounding Region = (6.25mm, 45mm, 17.9mm, 52mm) (InComponentClass('Valve12'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIHVOFFC4FCFEEJHEFETDLOAYXJ4T2H0UFJ4XC3JQRMZLXUCZ3EOO">Room Valve15 (Bounding Region = (6.25mm, 24mm, 17.9mm, 31mm) (InComponentClass('Valve15'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZKTZ2EKWK31LGKT0UBOL5VUTNGGYOFRMXV4CLMJWIH5DRYQT01FC">Room Valve13 (Bounding Region = (6.25mm, 38mm, 17.9mm, 45mm) (InComponentClass('Valve13'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5AOOZLDSFES5KVMNE2M0X3X33FIZDKEOJFX3H3HG2UYTVGTU43LN">Room Valve14 (Bounding Region = (6.25mm, 31mm, 17.9mm, 38mm) (InComponentClass('Valve14'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUGWTBGWWNAUCJ4ALUASHDL20TEIIZYNSKSNF1ZLKKYQACEGH1TAI">Room Valve4 (Bounding Region = (72.1mm, 38mm, 83.75mm, 45mm) (InComponentClass('Valve4'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDK2FTKTNZEZJEBEZ2FDTEKJXCONCMDRRCUVUKSFIEN2WXIJ5WE0BB">Room Valve6 (Bounding Region = (72.1mm, 52mm, 83.75mm, 59mm) (InComponentClass('Valve6'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLQ3RDH4W0NKKBISSZWLNNHPKKNM5EEG5CEDSRYOH1NDYQ5QZ4B3I">Room Valve3 (Bounding Region = (72.1mm, 31mm, 83.75mm, 38mm) (InComponentClass('Valve3'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVASIZLDVL2DSCNF23GA0CGBPJB5RAKSWRG0BEVNGHBRCFB4GKUAB">Room Valve11 (Bounding Region = (6.25mm, 52mm, 17.9mm, 59mm) (InComponentClass('Valve11'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5131Z5OFJYQUFXZLMJTUDA50QF1ABD0ZHOH4S5L0SVRQ2VHEKMH">Room Valve16 (Bounding Region = (6.25mm, 17mm, 17.9mm, 24mm) (InComponentClass('Valve16'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZNADIAG1X4POGY2W3NYE3Q0KMOQHN4HQAHADSLA3MJ43HWOWZVC">Height Constraint (Min=0mm) (Max=1816.048mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXNSMHNEAMVNUG4ALTNXRZ5CDKN4VE1OVWIGFGAN4YP0Y2BZ4WZ5N">Clearance Constraint (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">8</td>
+</tr>
+</table><br><a name="IDYEEI2MBS4ISPFQ4OIMSVRE1BTBTGD5CFMW2UWUG1FIHM2KUHEQXD"><h2>Rule Violations</h2></a><a name="IDZILQMFWBCJGTFLCUTLU02LJIRIT0AJPQRISKFXMDVWTWOXRZW0PP"><h2>Waived Violations</h2></a><a name="IDXNSMHNEAMVNUG4ALTNXRZ5CDKN4VE1OVWIGFGAN4YP0Y2BZ4WZ5N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Clearance Constraint (Gap=0.127mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2529.209mil|Location2.X=2535.459mil|Location1.Y=1979.66mil|Location2.Y=1985.91mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2529.209mil|Location2.X=2535.459mil|Location1.Y=1979.66mil|Location2.Y=1985.91mil|Absolute=True">Clearance Constraint: (0.123mm &lt; 0.127mm) Between Pad J5_CC_oct_driver1-2(64.324mm,50.026mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:01:49<br>Address selection</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=838.264mil|Location2.X=844.514mil|Location1.Y=1979.66mil|Location2.Y=1985.91mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=838.264mil|Location2.X=844.514mil|Location1.Y=1979.66mil|Location2.Y=1985.91mil|Absolute=True">Clearance Constraint: (0.123mm &lt; 0.127mm) Between Pad J5_CC_oct_driver2-2(21.374mm,50.026mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:01:49<br>Address selection</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2529.209mil|Location2.X=2535.459mil|Location1.Y=2019.659mil|Location2.Y=2025.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2529.209mil|Location2.X=2535.459mil|Location1.Y=2019.659mil|Location2.Y=2025.909mil|Absolute=True">Clearance Constraint: (0.123mm &lt; 0.127mm) Between Pad J6_CC_oct_driver1-2(64.324mm,51.042mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:01:49<br>Address selection</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=838.264mil|Location2.X=844.514mil|Location1.Y=2019.659mil|Location2.Y=2025.909mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=838.264mil|Location2.X=844.514mil|Location1.Y=2019.659mil|Location2.Y=2025.909mil|Absolute=True">Clearance Constraint: (0.123mm &lt; 0.127mm) Between Pad J6_CC_oct_driver2-2(21.374mm,51.042mm) on Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:01:49<br>Address selection</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=836.989mil|Location2.X=845.236mil|Location1.Y=1978.873mil|Location2.Y=1987.05mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=836.989mil|Location2.X=845.236mil|Location1.Y=1978.873mil|Location2.Y=1987.05mil|Absolute=True">Clearance Constraint: (0.092mm &lt; 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:02:03<br>Address selection</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=836.989mil|Location2.X=845.236mil|Location1.Y=2018.87mil|Location2.Y=2027.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=836.989mil|Location2.X=845.236mil|Location1.Y=2018.87mil|Location2.Y=2027.047mil|Absolute=True">Clearance Constraint: (0.092mm &lt; 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 23:02:03<br>Address selection</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.934mil|Location2.X=2536.181mil|Location1.Y=1978.871mil|Location2.Y=1987.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.934mil|Location2.X=2536.181mil|Location1.Y=1978.871mil|Location2.Y=1987.048mil|Absolute=True">Clearance Constraint: (0.092mm &lt; 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 22:37:01<br>Address selection</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.934mil|Location2.X=2536.181mil|Location1.Y=2018.871mil|Location2.Y=2027.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\piotr\OneDrive\SpaceSystems\payload\Cells_in_Space\ISS_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.934mil|Location2.X=2536.181mil|Location1.Y=2018.871mil|Location2.Y=2027.048mil|Absolute=True">Clearance Constraint: (0.092mm &lt; 0.127mm) Between Region (0 hole(s)) Signal+Parts And Region (0 hole(s)) Signal+Parts </acronym></a><br>Waived by Piotr S這nka at 2024-05-31 22:37:01<br>Address selection</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
